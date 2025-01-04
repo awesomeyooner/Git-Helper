@@ -1,0 +1,110 @@
+{
+  "name": "git-cli-helper",
+  "displayName": "Git CLI Helper",
+  "publisher": "PolarRobotics",
+  "repository": {
+    "url": "https://github.com/awesomeyooner/git-cli-helper.git"
+  },
+  "description": "wrapper for git commands to be used in the VSCode Command Prompt",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "git-cli-helper.status",
+        "title": "Status"
+      },
+
+      {
+        "command": "git-cli-helper.list_branches",
+        "title": "List Branches"
+      },
+
+      {
+        "command": "git-cli-helper.checkout",
+        "title": "Checkout Branch"
+      },
+
+      {
+        "command": "git-cli-helper.create_branch",
+        "title": "Create Branch"
+      },
+      
+      {
+        "command": "git-cli-helper.reset_branch",
+        "title": "Reset Branch"
+      },
+
+      {
+        "command": "git-cli-helper.delete_branch",
+        "title": "Delete Branch"
+      },
+
+      {
+        "command": "git-cli-helper.add_submodule",
+        "title": "Add Submodule"
+      },
+
+      {
+        "command": "git-cli-helper.update_submodule",
+        "title": "Update Submodule"
+      },
+
+      {
+        "command": "git-cli-helper.init_submodule",
+        "title": "Initialize Submodule"
+      },
+
+      {
+        "command": "git-cli-helper.commit",
+        "title": "Commit"
+      },
+
+      {
+        "command": "git-cli-helper.pull",
+        "title": "Pull"
+      },
+
+      {
+        "command": "git-cli-helper.push",
+        "title": "Push"
+      },
+
+      {
+        "command": "git-cli-helper.fetch",
+        "title": "Fetch"
+      },
+
+      {
+        "command": "git-cli-helper.add",
+        "title": "Track File"
+      },
+
+      {
+        "command": "git-cli-helper.add_all",
+        "title": "Track all Files"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.54.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}

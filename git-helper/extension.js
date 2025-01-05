@@ -15,6 +15,8 @@ const git_reset_branch = "git checkout -B";
 
 const git_add_submodule = "git submodule add";
 const git_update_submodule = "git submodule update --recursive --remote";
+const git_commit_submodule = "git submodule foreach 'git add . && git commit -m \"updated submodule\"'"
+const git_push_submodule = "git submodule foreach 'git push origin main'";
 const git_init_submodule = "git submodule update --init --recursive";
 
 const git_commit = "git commit";
@@ -166,6 +168,19 @@ function activate(context) {
 		vscode.window.showInformationMessage('Command Executed!');
 	});
 
+	let cmd_commit_submodule = vscode.commands.registerCommand('git-cli-helper.commit_submodule', async function () {
+
+		const term = await getTerminal(terminal_name);
+
+		term.show();
+		
+		term.sendText(cd_into_ws + and + git_commit_submodule + and + git_push_submodule, true);
+
+		console.log("running command...");
+
+		vscode.window.showInformationMessage('Command Executed!');
+	});
+
 	let cmd_init_submodule = vscode.commands.registerCommand('git-cli-helper.init_submodule', async function () {
 
 		const term = await getTerminal(terminal_name);
@@ -270,6 +285,7 @@ function activate(context) {
 		cmd_delete_branch,
 		cmd_add_submodule,
 		cmd_update_submodule,
+		cmd_commit_submodule,
 		cmd_init_submodule,
 		cmd_commit,
 		cmd_pull,

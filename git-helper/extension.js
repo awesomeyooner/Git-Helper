@@ -21,7 +21,7 @@ var branch_name = "main";
 
 var git_commit_submodule = `git submodule foreach 'git add . && git commit -m ${commit_message}'`
 var git_push_submodule = `git submodule foreach 'git push origin ${branch_name}'`;
-const git_init_submodule = "git submodule update --init --recursive";
+const git_init_submodule = "git submodule update --init";
 
 const git_commit = "git commit";
 const git_pull = "git pull";

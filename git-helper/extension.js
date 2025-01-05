@@ -33,6 +33,10 @@ const git_add_all = "git add .";
 function activate(context) {
 	var path = vscode.workspace.workspaceFolders[0].uri.path; //gets the main path of the workspace you opened
 
+	if(os.platform() === 'win32'){
+		path.replace('/c:', ''); //if its windows then remove the C: directory when trying to cd
+	}
+
 	var cd_into_ws = "cd " + path;
 	var and = " ; ";
 

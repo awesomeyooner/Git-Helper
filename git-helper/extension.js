@@ -15,8 +15,12 @@ const git_reset_branch = "git checkout -B";
 
 const git_add_submodule = "git submodule add";
 const git_update_submodule = "git submodule update --recursive --remote";
-const git_commit_submodule = "git submodule foreach 'git add . && git commit -m \"updated submodule\"'"
-const git_push_submodule = "git submodule foreach 'git push origin main'";
+
+var commit_message = "update";
+var branch_name = "main";
+
+var git_commit_submodule = `git submodule foreach 'git add . && git commit -m ${commit_message}'`
+var git_push_submodule = `git submodule foreach 'git push origin ${branch_name}'`;
 const git_init_submodule = "git submodule update --init --recursive";
 
 const git_commit = "git commit";
@@ -171,6 +175,26 @@ function activate(context) {
 	let cmd_commit_submodule = vscode.commands.registerCommand('git-cli-helper.commit_submodule', async function () {
 
 		const term = await getTerminal(terminal_name);
+
+		var commit_message = await vscode.window.showInputBox({
+			placeHolder: "Please Type your Commit Message"
+		});
+
+		//check if commit_message is just whitespace
+		if(commit_message.trim() === "")
+			commit_message = "Updated submodule from Parent";
+
+		var branch_name = await vscode.window.showInputBox({
+			placeHolder: "Please Type the Branch, Default is main"
+		});
+
+		//check if branch_name is just whitespace
+		if(branch_name.trim() === "")
+			branch_name = "main";
+
+		//update the command
+		git_commit_submodule = `git submodule foreach 'git add . && git commit -m "${commit_message}"'`
+		git_push_submodule = `git submodule foreach 'git push origin ${branch_name}'`;
 
 		term.show();
 		

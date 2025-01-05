@@ -6,7 +6,7 @@
     "url": "https://github.com/awesomeyooner/git-cli-helper.git"
   },
   "description": "wrapper for git commands to be used in the VSCode Command Prompt",
-  "version": "0.8.0",
+  "version": "0.10.0",
   "engines": {
     "vscode": "^1.54.0"
   },

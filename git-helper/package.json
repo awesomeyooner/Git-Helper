@@ -6,7 +6,7 @@
     "url": "https://github.com/awesomeyooner/git-cli-helper.git"
   },
   "description": "wrapper for git commands to be used in the VSCode Command Prompt",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.54.0"
   },
@@ -21,72 +21,58 @@
         "command": "git-cli-helper.status",
         "title": "Git Helper: Status"
       },
-
       {
         "command": "git-cli-helper.list_branches",
         "title": "Git Helper: List Branches"
       },
-
       {
         "command": "git-cli-helper.checkout",
         "title": "Git Helper: Checkout Branch"
       },
-
       {
         "command": "git-cli-helper.create_branch",
         "title": "Git Helper: Create Branch"
       },
-      
       {
         "command": "git-cli-helper.reset_branch",
         "title": "Git Helper: Reset Branch"
       },
-
       {
         "command": "git-cli-helper.delete_branch",
         "title": "Git Helper: Delete Branch"
       },
-
       {
         "command": "git-cli-helper.add_submodule",
         "title": "Git Helper: Add Submodule"
       },
-
       {
         "command": "git-cli-helper.update_submodule",
         "title": "Git Helper: Update Submodule"
       },
-
       {
         "command": "git-cli-helper.init_submodule",
         "title": "Git Helper: Initialize Submodule"
       },
-
       {
         "command": "git-cli-helper.commit",
         "title": "Git Helper: Commit"
       },
-
       {
         "command": "git-cli-helper.pull",
         "title": "Git Helper: Pull"
       },
-
       {
         "command": "git-cli-helper.push",
         "title": "Git Helper: Push"
       },
-
       {
         "command": "git-cli-helper.fetch",
         "title": "Git Helper: Fetch"
       },
-
       {
         "command": "git-cli-helper.add",
         "title": "Git Helper: Track File"
       },
-
       {
         "command": "git-cli-helper.add_all",
         "title": "Git Helper: Track all Files"

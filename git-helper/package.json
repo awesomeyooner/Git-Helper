@@ -19,77 +19,77 @@
     "commands": [
       {
         "command": "git-cli-helper.status",
-        "title": "Status"
+        "title": "Git Helper: Status"
       },
 
       {
         "command": "git-cli-helper.list_branches",
-        "title": "List Branches"
+        "title": "Git Helper: List Branches"
       },
 
       {
         "command": "git-cli-helper.checkout",
-        "title": "Checkout Branch"
+        "title": "Git Helper: Checkout Branch"
       },
 
       {
         "command": "git-cli-helper.create_branch",
-        "title": "Create Branch"
+        "title": "Git Helper: Create Branch"
       },
       
       {
         "command": "git-cli-helper.reset_branch",
-        "title": "Reset Branch"
+        "title": "Git Helper: Reset Branch"
       },
 
       {
         "command": "git-cli-helper.delete_branch",
-        "title": "Delete Branch"
+        "title": "Git Helper: Delete Branch"
       },
 
       {
         "command": "git-cli-helper.add_submodule",
-        "title": "Add Submodule"
+        "title": "Git Helper: Add Submodule"
       },
 
       {
         "command": "git-cli-helper.update_submodule",
-        "title": "Update Submodule"
+        "title": "Git Helper: Update Submodule"
       },
 
       {
         "command": "git-cli-helper.init_submodule",
-        "title": "Initialize Submodule"
+        "title": "Git Helper: Initialize Submodule"
       },
 
       {
         "command": "git-cli-helper.commit",
-        "title": "Commit"
+        "title": "Git Helper: Commit"
       },
 
       {
         "command": "git-cli-helper.pull",
-        "title": "Pull"
+        "title": "Git Helper: Pull"
       },
 
       {
         "command": "git-cli-helper.push",
-        "title": "Push"
+        "title": "Git Helper: Push"
       },
 
       {
         "command": "git-cli-helper.fetch",
-        "title": "Fetch"
+        "title": "Git Helper: Fetch"
       },
 
       {
         "command": "git-cli-helper.add",
-        "title": "Track File"
+        "title": "Git Helper: Track File"
       },
 
       {
         "command": "git-cli-helper.add_all",
-        "title": "Track all Files"
+        "title": "Git Helper: Track all Files"
       }
     ]
   },

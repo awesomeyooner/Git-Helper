@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const os = require('os');
 
 const terminal_name = "git";
 
@@ -13,7 +14,7 @@ const git_delete_branch = "git branch -D";
 const git_reset_branch = "git checkout -B";
 
 const git_add_submodule = "git submodule add";
-const git_update_submodule = "git submodule update --recursive -- remote";
+const git_update_submodule = "git submodule update --recursive --remote";
 const git_init_submodule = "git submodule update --init --recursive";
 
 const git_commit = "git commit";
@@ -278,6 +279,7 @@ function activate(context) {
 function getTerminal(name){
 	var git_terminal_active = false; //is the terminal used for commands active?
 	var git_terminal_index; //which index is the terminal at?
+	var operating_system = os.platform();
 
 	for(var i = 0; i < vscode.window.terminals.length; i++){
 		const current = vscode.window.terminals[i];
@@ -288,10 +290,18 @@ function getTerminal(name){
 		}
 	}
 
-	if(git_terminal_active)
+	if(git_terminal_active){
 		return vscode.window.terminals[git_terminal_index];
-	else
-		return vscode.window.createTerminal(name);
+	}
+	else{
+		if(operating_system === 'win32')
+			return vscode.window.createTerminal({
+				name: name,
+				shellPath: "powershell"
+			});
+		else
+			return vscode.window.createTerminal(name);
+	}
 }
 
 

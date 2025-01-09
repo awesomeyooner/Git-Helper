@@ -46,6 +46,19 @@ function activate(context) {
 	var cd_into_ws = "cd " + path;
 	var and = " ; ";
 
+	let cmd_cd_into_ws = vscode.commands.registerCommand('git-cli-helper.cd_workspace', async function () {
+
+		const term = await getTerminal(terminal_name);
+
+		term.show();
+		
+		term.sendText(cd_into_ws, true);
+
+		console.log("running command...");
+
+		vscode.window.showInformationMessage('Command Executed!');
+	});
+
 	let cmd_status = vscode.commands.registerCommand('git-cli-helper.status', async function () {
 
 		const term = await getTerminal(terminal_name);
@@ -152,7 +165,7 @@ function activate(context) {
 
 		term.show();
 		
-		term.sendText(cd_into_ws + and + git_add_submodule + " " + link, true);
+		term.sendText(git_add_submodule + " " + link, true);
 
 		console.log("running command...");
 
@@ -301,6 +314,7 @@ function activate(context) {
 	});
 
 	context.subscriptions.push(
+		cmd_cd_into_ws,
 		cmd_status,
 		cmd_list_branches,
 		cmd_checkout,

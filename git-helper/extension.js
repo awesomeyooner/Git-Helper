@@ -40,11 +40,11 @@ function activate(context) {
 	var path = vscode.workspace.workspaceFolders[0].uri.path; //gets the main path of the workspace you opened
 
 	if(os.platform() === 'win32'){
-		path = path.replace('/c:', ''); //if its windows then remove the C: directory when trying to cd
+		path = path.replace('/c:', 'c:'); //if its windows then remove the / infront of c: directory when trying to cd
 	}
 
 	var cd_into_ws = "cd " + path;
-	var and = " ; ";
+	var and = " && ";
 
 	let cmd_cd_into_ws = vscode.commands.registerCommand('git-cli-helper.cd_workspace', async function () {
 
@@ -355,7 +355,7 @@ function getTerminal(name){
 		if(operating_system === 'win32')
 			return vscode.window.createTerminal({
 				name: name,
-				shellPath: "powershell"
+				shellPath: "c:/Program Files/Git/bin/bash.exe" //replace with "powershell" if ya wanna use powershell
 			});
 		else
 			return vscode.window.createTerminal(name);

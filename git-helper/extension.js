@@ -18,10 +18,12 @@ const git_update_submodule = "git submodule update --recursive --remote";
 
 var commit_message = "update";
 var branch_name = "main";
+var foreach_command = "git status";
 
 var git_commit_submodule = `git submodule foreach 'git add . && git commit -m ${commit_message}'`
 var git_push_submodule = `git submodule foreach 'git push origin ${branch_name}'`;
 const git_init_submodule = "git submodule update --init";
+var git_foreach_submodule = `git submodule foreach '${foreach_command}'`;
 
 const git_commit = "git commit";
 const git_pull = "git pull";
@@ -231,6 +233,28 @@ function activate(context) {
 		vscode.window.showInformationMessage('Command Executed!');
 	});
 
+	let cmd_foreach_submodule = vscode.commands.registerCommand('git-cli-helper.foreach_submodule', async function () {
+
+		const term = await getTerminal(terminal_name);
+
+		foreach_command = await vscode.window.showInputBox({
+			placeHolder: "Please Type the Command"
+		});
+
+		if(foreach_command.trim() === "") //if its just whitespace
+			foreach_command = "git status";
+			
+		git_foreach_submodule = `git submodule foreach '${foreach_command}'`;
+
+		term.show();
+		
+		term.sendText(cd_into_ws + and + git_foreach_submodule, true);
+
+		console.log("running command...");
+
+		vscode.window.showInformationMessage('Command Executed!');
+	});
+
 	let cmd_commit = vscode.commands.registerCommand('git-cli-helper.commit', async function () {
 
 		const term = await getTerminal(terminal_name);
@@ -325,6 +349,7 @@ function activate(context) {
 		cmd_update_submodule,
 		cmd_commit_submodule,
 		cmd_init_submodule,
+		cmd_foreach_submodule,
 		cmd_commit,
 		cmd_pull,
 		cmd_push,

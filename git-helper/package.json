@@ -6,7 +6,7 @@
     "url": "https://github.com/awesomeyooner/git-cli-helper.git"
   },
   "description": "wrapper for git commands to be used in the VSCode Command Prompt",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "engines": {
     "vscode": "^1.54.0"
   },
@@ -60,6 +60,10 @@
       {
         "command": "git-cli-helper.init_submodule",
         "title": "Git Helper: Initialize Submodule"
+      },
+      {
+        "command": "git-cli-helper.foreach_submodule",
+        "title": "Git Helper: Foreach Submodule"
       },
       {
         "command": "git-cli-helper.commit",
